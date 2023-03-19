@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Year Countdown</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: gray;
+        color: white;
+        text-align: center;
+        font-variant: small-caps;
+        }
+      
+      h1 {
+        font-size: 2rem;
+        margin-top: 30px;
+        font-family: sans-serif;
+        color: yellow ;
+        text-shadow: 3px 3px 3px black;
+        
+      }
+      #countdown {
+        font-size: 1rem;
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        
+      }
+      #countdown div {
+        margin: 0 10px;
+        border-radius: 7px;
+        background-color: #333;
+        padding: 5px;
+        width: 100px;
+        box-shadow: 0px 0px 5px red;
+      }
+      
+      #countdown div span {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      }
+      #countdown div p {
+        font-size: 1em;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>2024 New Year Countdown</h1>
+    <div id="countdown">
+      <div>
+        <span id="days"></span>
+        <p>Days</p>
+      </div>
+      <div>
+        <span id="hours"></span>
+        <p>Hours</p>
+      </div>
+      <div>
+        <span id="minutes"></span>
+        <p>Minutes</p>
+      </div>
+      <div>
+        <span id="seconds"></span>
+        <p>Seconds</p>
+      </div>
+    </div>
+    <script>
+      function countdown() {
+        const newYear = new Date("January 1, 2024 00:00:00").getTime();
+        const now = new Date().getTime();
+        const distance = newYear - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+      }
+      countdown();
+      setInterval(countdown, 1000);
+    </script>
+  </body>
+</html>
