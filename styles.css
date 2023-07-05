@@ -1,0 +1,84 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+  
+h1 {
+    font-size: 4rem;
+    color: blue;
+    margin-top: 150px;
+    font-family: ravie;
+    letter-spacing: 15px;
+    text-shadow: -4px 0 1px lime;
+}
+
+#countdown {
+    font-size: 1rem;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.hover{
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    
+}
+
+.hover:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    
+}
+
+#countdown div {
+    margin: 0px 40px;
+    border-radius: 7px;
+    background-color: black;
+    padding: 7px;
+    width: 100px;
+    box-shadow: 0px 0px 20px lime;
+}
+  
+#countdown div span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+  
+  
+#countdown div .time {
+    font-size: 1em;
+    margin: 0;
+}
+
+.time{
+    color: lime;
+    padding: 20px;
+    background-color: rgba(0, 0, 255, 0.788);
+    
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        margin-top: 250px;
+        font-weight: 100;
+    }
+} 
+
+/* SNOWBALL */
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+
+    display: block;
+    background-color: black;
+}
