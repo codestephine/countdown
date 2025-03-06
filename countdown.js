@@ -1,19 +1,32 @@
 //COUNTDOWN
 function countdown() {
-    const newYear = new Date("January 1, 2024 00:00:00").getTime();
-    const now = new Date().getTime();
-    const distance = newYear - now;
+    // Get the current year dynamically
+    let currentYear = new Date().getFullYear();
+    let targetDate = new Date(`January 1, ${currentYear + 1} 00:00:00`).getTime();
+    let now = new Date().getTime();
+    let distance = targetDate - now;
+
+    if (distance <= 0) {
+        // Automatically set the target to next year
+        targetDate = new Date(`January 1, ${currentYear + 2} 00:00:00`).getTime();
+        distance = targetDate - now;
+    }
+
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-  }
-  countdown();
-  setInterval(countdown, 1000);
+
+    document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+    document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+}
+
+// Run countdown initially and update every second
+countdown();
+setInterval(countdown, 1000);
+
 
 
 
